@@ -6,17 +6,17 @@
 // a) отримує текст з параграфа з id "content"
 
 let textContent = document.getElementById('content');
-console.log(textContent);
+console.log(textContent.innerText);
 // b) отримує текст з блоку з id "rules"
 
 let textRules = document.getElementById("rules");
-console.log(textRules);
+console.log(textRules.innerText);
 
 // c) замініть текст параграфа з id 'content' на будь-який інший
-textContent.innerHTML = 'замініть текст параграфа з id \'content\' на будь-який інший';
+textContent.innerHTML = 'замініть текст параграфа з id content на будь-який інший';
 
 // d) замініть текст параграфа з id 'rules' на будь-який інший
-textRules.innerHTML = 'замініть текст параграфа з id \'rules\' на будь-який інший';
+textRules.innerHTML = 'замініть текст параграфа з id rules на будь-який інший';
 
 // e) змініть кожному елементу колір фону на червоний
 textContent.style.background = 'red';
