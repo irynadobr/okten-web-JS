@@ -2,7 +2,7 @@
 
 function arrays(arr) {
     let array = arr;
-    console.log(arr);
+    console.log(array);
 }
 
 arrays([1, 2, 3]);
@@ -24,11 +24,16 @@ random(25);
 // 3) створити функцію яка приймає три числа та виводить найменьше. (Без Math.min!)
 function min(a, b, c) {
     let arr = [a, b, c];
-    arr.sort(function (a, b) {
-            return a - b;
+    let min =arr[0];
+
+    for (let i = 1; i < arr.length; i++) {
+        const arrElement = arr[i];
+
+        if (arr[i]<min) {
+            min=arr[i]
         }
-    )
-    console.log(arr[0]);
+    }
+    console.log(min);
 }
 
 min(520, 2, 20);
@@ -36,11 +41,16 @@ min(520, 2, 20);
 // 4) створити функцію яка приймає три числа та виводить найбільше. (Без Math.max!)
 function max(a, b, c) {
     let arr = [a, b, c];
-    arr.sort(function (a, b) {
-            return b - a;
+    let max =arr[0];
+
+    for (let i = 1; i < arr.length; i++) {
+        const arrElement = arr[i];
+
+        if (arr[i]>max) {
+            max=arr[i]
         }
-    )
-    console.log(arr[0]);
+    }
+    console.log(max);
 }
 
 max(520, 2, 20);
@@ -50,11 +60,16 @@ max(520, 2, 20);
 
 function maxNumberOfArray(arrays) {
     let arr = arrays;
-    arr.sort(function (a, b) {
-            return a - b;
+    let max =arr[0];
+
+    for (let i = 1; i < arr.length; i++) {
+        const arrElement = arr[i];
+
+        if (arr[i]>max) {
+            max=arr[i]
         }
-    )
-    return arr[arr.length - 1];
+    }
+    return max;
 }
 
 console.log(maxNumberOfArray([1, 500, 700, 4, 20000, 10, 2000, 1000]));
@@ -63,11 +78,16 @@ console.log(maxNumberOfArray([1, 500, 700, 4, 20000, 10, 2000, 1000]));
 
 function minNumberOfArray(arrays) {
     let arr = arrays;
-    arr.sort(function (a, b) {
-            return b - a;
+    let min =arr[0];
+
+    for (let i = 1; i < arr.length; i++) {
+        const arrElement = arr[i];
+
+        if (arr[i]<min) {
+            min=arr[i]
         }
-    )
-    return arr[arr.length - 1];
+    }
+    return min;
 }
 
 console.log(minNumberOfArray([1, 500, 700, 0, 20000, 10, 2000, 1000]));
@@ -264,25 +284,39 @@ console.log(returnValueOrKays([{name: 'Dima', age: 13}, {model: 'Camry'}]));
 function objectIndex(arr, index) {
     let arrays = arr;
     let ind = index;
-    let rezultat = [];
-    let newArray = [];
-    newArray.push(arrays[ind + 1]);
-    newArray.push(arrays[ind]);
-    for (let i = 0; i < arrays.length; i++) {
-        if (i === ind) {
-            rezultat.push(newArray[0]);
-            rezultat.push(newArray[1]);
-            i = i + 1;
-        } else {
-            rezultat.push(arrays[i])
-        }
-    }
-    console.log(rezultat);
+    let a1 = arrays[ind];
+    let a2 = arrays[ind+1];
+    arrays[ind] =a2;
+    arrays[ind+1] = a1;
+    console.log(arrays);
 }
 
 objectIndex([9, 8, 0, 4], 0);
 objectIndex([9, 8, 0, 4], 1);
 objectIndex([9, 8, 0, 4], 2);
+
+//function objectIndex(arr, index) {
+//     let arrays = arr;
+//     let ind = index;
+//     let rezultat = [];
+//     let newArray = [];
+//     newArray.push(arrays[ind + 1]);
+//     newArray.push(arrays[ind]);
+//     for (let i = 0; i < arrays.length; i++) {
+//         if (i === ind) {
+//             rezultat.push(newArray[0]);
+//             rezultat.push(newArray[1]);
+//             i = i + 1;
+//         } else {
+//             rezultat.push(arrays[i])
+//         }
+//     }
+//     console.log(rezultat);
+// }
+
+// objectIndex([9, 8, 0, 4], 0);
+// objectIndex([9, 8, 0, 4], 1);
+// objectIndex([9, 8, 0, 4], 2);
 
 // - Сворити функцію яка буде переносити елементи з значенням 0 у кінець маисву.
 // Зберігаючи при цьому порядок не нульових значень.
