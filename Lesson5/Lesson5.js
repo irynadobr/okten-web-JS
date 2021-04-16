@@ -12,11 +12,9 @@ class Computer {
         this.power = power;
         this.name = name;
     }
-
     inclusion() {
         console.log(`"computer  ${this.name}  inkluded`);
     }
-
 }
 
 const user1 = new Computer(8, 500, 'user1');
@@ -36,7 +34,6 @@ class Laptop extends Computer {
         super(ram, power, name);
         this.inchMonitor = inchMonitor;
         this.batteryOperation = power / (inchMonitor * ram);
-
     }
 
 }
@@ -53,13 +50,11 @@ class Ultrabook extends Laptop {
     constructor(ram, power, name, inchMonitor, weight) {
         super(ram, power, name, inchMonitor);
         this.weight = weight;
-
-
     }
 
     inclusion() {
         if (this.weight > 2 && this.batteryOperation < 4) {
-            console.log(`ultrabook ${this.name} error. weight = `+ this.weight+ ` > 2 and battery = `+ this.batteryOperation+ ` < 4 hour`);
+            console.log(`ultrabook ${this.name} error. weight = ${this.weight}  > 2 and battery = ${this.batteryOperation} < 4 hour`);
         }
     }
 }
@@ -89,7 +84,6 @@ class BaseComputer extends Computer {
         super(ram, power, name);
         this.FPS_COUNT = power / ram;
     }
-
     playing() {
         console.log(`You are playing *GAME_${this.name}* with *${this.FPS_COUNT}* FSP`);
     }
@@ -98,21 +92,20 @@ class BaseComputer extends Computer {
         if (increasePower < 10) {
 
             let newPower = this.power * (increasePower / 100 + 1);
-
             console.log(`Power =` + newPower);
-            console.log(`CPU power ` + this.name + ` increased by ${increasePower}`);
+            console.log(`CPU power  ${this.name}  increased by ${increasePower}`);
         } else {
-            console.log(`Entered incorrectly. Increased Power ` + this.name + ` = ` + increasePower + ` >10%. `)
+            console.log(`Entered incorrectly. Increased Power ${this.name} = ${increasePower} > 10% `)
         }
     }
 
     increaseRam(increaseRam) {
         if (increaseRam === 2) {
             let newRam = this.ram * 2;
-            console.log(`RAM =` + newRam);
-            console.log(`RAM ` + this.name + ` increased by ${increaseRam}`)
+            console.log(`RAM = ${newRam}`);
+            console.log(`RAM  ${this.name}  increased by ${increaseRam}`)
         } else {
-            console.log(`Entered incorrectly. Increased RAM ` + this.name + ` = ` + increaseRam + ` > 2 `)
+            console.log(`Entered incorrectly. Increased RAM  ${this.name}  = ${increaseRam} > 2 `)
         }
     }
 }
@@ -140,25 +133,20 @@ class GamingComputer extends BaseComputer {
     constructor(Ram, power, name) {
         super(Ram, power, name);
         this.FPS_COUNT = this.FPS_COUNT * 2;
-
     }
 
     playing() {
         this.power = this.power * 0.9;
         super.playing();
-        console.log(`power ${this.name} = ` + this.power);
+        console.log(`power ${this.name} = ${this.power}`);
     }
-
 
     error() {
         console.log(this.power)
         if (this.power < 500 && this.ram < 8) {
-            console.log(`error!!!! power = ` + this.power + ` < 500  and RAM = ` + this.ram + ` < 8 .  Games do not start on the computer   ` + this.name);
-
+            console.log(`error!!!! power = ${this.power} < 500  and RAM = ${this.ram}  < 8 .  Games do not start on the computer  ${this.name}`);
         }
     }
-
-
 
 }
 
