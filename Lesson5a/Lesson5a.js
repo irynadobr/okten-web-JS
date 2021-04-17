@@ -20,7 +20,12 @@ function Car(model, produser, age, maxSpeed, power,) {
         console.log(`їдемо зі швидкістю ${this.maxSpeed} на годину`);
     }
     this.info = function () {
-        console.log(`model:  ${this.model},  produser:  ${this.produser},  age: ${this.age},  maxSpeed: ${this.maxSpeed}, power: ${this.power}`)
+        console.log(`
+        model:  ${this.model},
+        produser:  ${this.produser},
+        age: ${this.age}, 
+        maxSpeed: ${this.maxSpeed},
+        power: ${this.power}`)
     }
     this.increaseMaxSpeed = function (newSpeed) {
         this.maxSpeed += newSpeed;
@@ -94,7 +99,12 @@ class Cars {
     }
 
     info() {
-        console.log(`model:  ${this.model},  produser:  ${this.produser},  age: ${this.age},  maxSpeed: ${this.maxSpeed}, power: ${this.power}`)
+        console.log(`
+        model:  ${this.model},
+        produser:  ${this.produser},
+        age: ${this.age},
+        maxSpeed: ${this.maxSpeed},
+        power: ${this.power}`)
     }
 
     increaseMaxSpeed(newSpeed) {
@@ -203,7 +213,11 @@ cinderellas.push(cinderella10);
 
 for (let cinderella of cinderellas) {
     if (cinderella.footSize === prince.shoeSize) {
-        console.log(`cinderella - ${cinderella.nameCinderella}, age - ${cinderella.ageCinderella}, foot size - ${cinderella.footSize}  повинна бути з принцем`);
+        console.log(`
+        cinderella - ${cinderella.nameCinderella},
+        age - ${cinderella.ageCinderella},
+        foot size - ${cinderella.footSize}
+          повинна бути з принцем`);
     }
 }
 
@@ -226,7 +240,11 @@ function Prinse(namePrince, agePrince, shoeSize) {
     this.cinderella = function (cinderellas) {
         for (let cinderella of cinderellas) {
             if (cinderella.footSize === this.shoeSize) {
-                console.log(`cinderella - ${cinderella.nameCinderella}, age - ${cinderella.ageCinderella}, foot size - ${cinderella.footSize}  повинна бути з принцем`);
+                console.log(`
+                cinderella - ${cinderella.nameCinderella},
+                age - ${cinderella.ageCinderella}, 
+                foot size - ${cinderella.footSize}  
+                повинна бути з принцем`);
             }
         }
     }
@@ -465,4 +483,47 @@ console.log(tegFrom);
 console.log(tegOption);
 console.log(tegSelect);
 
+// -- Створити об'єкт car, з властивостями модель, виробник, рік випуску, максимальна швидкість, об'єм двигуна. додати в об'єкт функції:
+// -- drive () - яка виводить в консоль "їдемо зі швидкістю {максимальна швидкість} на годину"
+// -- info () - яка виводить всю інформацію про автомобіль
+// -- increaseMaxSpeed (newSpeed) - яка підвищує значення максимальної швидкості на значення newSpeed
+// -- changeYear (newValue) - змінює рік випуску на значення newValue
+// -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і доавляет його в поточний об'єкт car
+
+let car = {
+    model: 'audi',
+    produser: 'audi',
+    age: 2000,
+    maxSpeed: 200,
+    power: 500,
+
+    drive() {
+        console.log(`їдемо зі швидкістю ${this.maxSpeed} км на годину`)
+    },
+    info() {
+        console.log(`
+        model:  ${this.model},
+        produser:  ${this.produser},
+        age: ${this.age},
+        maxSpeed: ${this.maxSpeed}, 
+        power: ${this.power}`)
+    },
+    increaseMaxSpeed(newSpeed) {
+        this.maxSpeed += newSpeed;
+    },
+    changeYear(newValue) {
+        this.age = newValue;
+        console.log(newValue);
+    },
+    addDriver(driver) {
+       car.driver = driver;
+    }
+}
+
+car.drive();
+car.info();
+car.increaseMaxSpeed(50);
+car.changeYear(2012);
+car.addDriver({name: 'anna', age: 20});
+console.log(car);
 
