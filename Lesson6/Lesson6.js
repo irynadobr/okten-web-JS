@@ -116,13 +116,23 @@ const users = [
     {name: 'max', age: 31, isMarried: true}
 ];
 // a) відсортувати його за  віком (зростання , а потім окремо спадання)
-let usersAgeAugmentation = (users.map(value => (value.age)))
-    .sort((a, b) => a - b);
-
+//зростання
+let usersAgeAugmentation = users.sort((a, b) => {
+    if (a.age > b.age)
+    {
+        return 1
+    }
+    return -1
+});
 console.log(usersAgeAugmentation);
-
-let usersaAgeDecline = (users.map(value => (value.age)))
-    .sort((a, b) => b - a);
+//спадання
+let usersaAgeDecline = users.sort((a, b) => {
+    if (a.age < b.age)
+    {
+        return 1
+    }
+    return -1
+});
 console.log(usersaAgeDecline);
 
 // b) відсортувати його за кількістю знаків в імені  (зростання , а потім окремо спадання)
