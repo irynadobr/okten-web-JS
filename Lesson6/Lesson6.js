@@ -61,18 +61,33 @@ let arrayString = ['Lora', 'Olga', 'Dara', 'Karina', 'Oleg', 'Tamara', 'Igor', '
     'Tanja', 'Xrystyna', 'Anita', 'Ala', 'Vita', 'Taras', 'Roman', 'Goga', 'Kira', 'Svitlana'];
 
 //     a) Відсортувати його в алфавітному порядку
+// 1-ий варіант
+// arrayString.sort((a, b) => {
+//     return a.localeCompare(b)
+// });
+// console.log(arrayString);
 
-arrayString.sort((a, b) => {
-    return a.localeCompare(b)
-});
-console.log(arrayString);
-
+let newArrayString = arrayString.sort((a, b) => {
+    if (a > b) {
+        return 1
+    }
+    return -1
+})
+console.log(newArrayString);
 // b) Відсортувати в зворотньому порядку
+// 1-ий варіант
+// arrayString.sort((a, b) => {
+//     return b.localeCompare(a)
+// });
+// console.log(arrayString);
 
-arrayString.sort((a, b) => {
-    return b.localeCompare(a)
-});
-console.log(arrayString);
+let newArrayString1 = arrayString.sort((a, b) => {
+    if (a < b) {
+        return 1
+    }
+    return -1
+})
+console.log(newArrayString1);
 
 // c) Отримати в новому масиві тільки ті слова, довжина яких більша за 4 букви (filter)
 let string10 = arrayString.filter(
@@ -112,9 +127,9 @@ console.log(usersaAgeDecline);
 
 // b) відсортувати його за кількістю знаків в імені  (зростання , а потім окремо спадання)
 //зростання
-let usersNameAugmentation = (users.map(value => (value.name)))
-    .sort((a, b) => {
-    if (a.length > b.length)
+
+let usersNameAugmentation = users.sort((a, b) => {
+    if (a.name.length > b.name.length)
     {
         return 1
     }
@@ -125,9 +140,8 @@ console.log(usersNameAugmentation);
 
 //спадання
 
-let usersaNameDecline = (users.map(value => (value.name)))
-    .sort((a, b) => {
-    if (a.length < b.length)
+let usersaNameDecline = users.sort((a, b) => {
+    if (a.name.length < b.name.length)
     {
         return 1
     }
@@ -140,29 +154,33 @@ console.log(usersaNameDecline);
 // індентифікатор (По якому принципу його створювати - ваше рішення),
 // та зберегти це в новий масив (первинний масив залишиться без змін)
 
-users.forEach(((value, index) => value.id = index + 1));
+let newUsers = users.map((value, index) => {
+    return {
+        id: index + 1, name: value.name, age: value.age, isMarried: value.isMarried
+    }
+});
 
-console.log(users);
+console.log(newUsers);
 // d) відсортувати його за індентифікатором
 
-let usersSortIdDecline = users.sort((a, b) => b.id - a.id);
-console.log(usersSortIdDecline);
+let newUsersSortIdDecline = newUsers.sort((a, b) => b.id - a.id);
+console.log(newUsersSortIdDecline);
 
-let usersSortIdAugmentation = users.sort((a, b) => a.id - b.id);
-console.log(usersSortIdAugmentation);
+let newUsersSortIdAugmentation = newUsers.sort((a, b) => a.id - b.id);
+console.log(newUsersSortIdAugmentation);
 
 // e) Всі хто одружений мають попасти у новий масив та отрмати квартиру (reduce)
 
-let newUsersisMarried = users.reduce((acc, value) => {
+let newUsersisMarried = newUsers.reduce((acc, value) => {
         if (value.isMarried) {
             value.rooms = true;
             acc.push(value)
         }
-        console.log(acc);
+
         return acc;
     }
     , [])
-
+console.log(newUsersisMarried);
 //або
 // let usersIsMarried =users.filter(value =>{
 //     if (value.isMarried) {
